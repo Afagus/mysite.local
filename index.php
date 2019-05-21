@@ -27,7 +27,15 @@ elseif ($hour >= 12 && $hour < 18){
 elseif ($hour >= 18 && $hour < 23){
     $welcome = 'Добрый вечер';
 }
-else $welcome = 'Доброй ночи'
+else $welcome = 'Доброй ночи';
+
+$leftMenu = [
+    ['link'=>'Домой', 'href'=>'index.php'],
+    ['link'=>'О нас', 'href'=>'about.php'],
+    ['link'=>'Контакты', 'href'=>'contact.php'],
+    ['link'=>'Таблица умножения', 'href'=>'contact.php'],
+    ['link'=>'Калькулятор', 'href'=>'calc.php'],
+]
 ?>
 
 
@@ -79,26 +87,16 @@ else $welcome = 'Доброй ночи'
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
       <?php
-      $leftMenu = [
-              ['link'=>'Домой', 'href'=>'index.php'],
-              ['link'=>'О нас', 'href'=>'about.php'],
-              ['link'=>'Контакты', 'href'=>'contact.php'],
-              ['link'=>'Таблица умножения', 'href'=>'contact.php'],
-              ['link'=>'Калькулятор', 'href'=>'calc.php'],
-      ]
+      echo "<ul>";
+      foreach ($leftMenu as $item){
+          echo "<li>";
+          echo "<a href='$item[href]'>$item[link]</a>";
+          echo "<li>";
+      }
+      echo "</ul>";
+
       ?>
-    <ul>
-      <li><a href='<?= $leftMenu[0]['href']?>'><?= $leftMenu[0]['link']?></a>
-      </li>
-      <li><a href='<?= $leftMenu[1]['href']?>'><?= $leftMenu[1]['link']?></a>
-      </li>
-      <li><a href='<?= $leftMenu[2]['href']?>'><?= $leftMenu[2]['link']?></a>
-      </li>
-      <li><a href='<?= $leftMenu[3]['href']?>'><?= $leftMenu[3]['link']?></a>
-      </li>
-      <li><a href='<?= $leftMenu[4]['href']?>'><?= $leftMenu[4]['link']?></a>
-      </li>
-    </ul>
+
     <!-- Меню -->
     <!-- Навигация -->
   </div>
