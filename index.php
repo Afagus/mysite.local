@@ -38,7 +38,7 @@ $leftMenu = [
     ['link'=>'Калькулятор', 'href'=>'calc.php'],
 ];
 
-function drawMenu($menu, $vertical = true)
+function drawMenu($menu, $vertical = true) // для коммита, можно удалить
 {
     $style = "";
     if (!$vertical) {
