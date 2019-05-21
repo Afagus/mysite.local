@@ -1,7 +1,21 @@
 <?php
-$cols = 10;
-$rows = 10;
-$color = 'coral';
+function drawTable($cols = 10, $rows = 10, $color = 'yellow')
+{
+    echo "<table border ='2' bgcolor='aqua'>";
+    for ($tr = 1; $tr <= $rows; $tr++) {
+        echo '<tr>';
+        for ($td = 1; $td <= $cols; $td++) {
+            if ($td == 1 || $tr == 1) {
+                echo "<th style='background: $color'>" . $td * $tr . '</th>';
+            } else {
+                echo '<td>' . $td * $tr . '</td>';
+            }
+        }
+        echo '</tr>';
+    }
+    echo '</table>';
+
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,24 +58,8 @@ $color = 'coral';
     </form>
     <!-- Таблица -->
       <?php
-        echo "<table border ='2' bgcolor='aqua'>";
-        for ($tr = 1; $tr <= $rows; $tr++){
-            echo '<tr>';
-            for ($td = 1; $td <= $cols; $td++){
-                if ($td == 1 || $tr == 1) {
-                    echo "<th style='background: $color'>" . $td * $tr . '</th>';
-                }
-                else {
-                    echo '<td>' . $td * $tr . '</td>';
-                }
-            }
-            echo '</tr>';
-
-        }
-
-        echo '</table>';
-
-
+      drawTable(5, 5, 'green');
+      echo '<br />';
     ?>
       <!-- Таблица -->
     <!-- Область основного контента -->

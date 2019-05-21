@@ -26,8 +26,9 @@ elseif ($hour >= 12 && $hour < 18){
 }
 elseif ($hour >= 18 && $hour < 23){
     $welcome = 'Добрый вечер';
+} else {
+    $welcome = 'Доброй ночи';
 }
-else $welcome = 'Доброй ночи';
 
 $leftMenu = [
     ['link'=>'Домой', 'href'=>'index.php'],
@@ -35,7 +36,23 @@ $leftMenu = [
     ['link'=>'Контакты', 'href'=>'contact.php'],
     ['link'=>'Таблица умножения', 'href'=>'contact.php'],
     ['link'=>'Калькулятор', 'href'=>'calc.php'],
-]
+];
+
+function drawMenu($menu, $vertical = true)
+{
+    $style = "";
+    if (!$vertical) {
+        $style = " style ='display:inline;margin-right:15px' ";
+    }
+    echo "<ul>";
+    foreach ($menu as $item) {
+        echo "<li$style>";
+        echo "<a href='$item[href]'>$item[link]</a>";
+        echo "</li>";
+    }
+    echo "</ul>";
+}
+
 ?>
 
 
@@ -87,13 +104,7 @@ $leftMenu = [
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
       <?php
-      echo "<ul>";
-      foreach ($leftMenu as $item){
-          echo "<li>";
-          echo "<a href='$item[href]'>$item[link]</a>";
-          echo "<li>";
-      }
-      echo "</ul>";
+      drawMenu($leftMenu);
 
       ?>
 
@@ -102,6 +113,9 @@ $leftMenu = [
   </div>
   <div id="footer">
     <!-- Нижняя часть страницы -->
+      <?php
+      drawMenu($leftMenu, false);
+      ?>
     &copy; Супер Мега Веб-мастер, 2000 &ndash; 2015
     <!-- Нижняя часть страницы -->
   </div>
