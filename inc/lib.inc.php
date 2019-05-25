@@ -1,4 +1,13 @@
 <?php
+function myError($no, $msg, $file, $line)
+{
+    if ($no == E_USER_ERROR) {
+        echo "Так не должно быть...";
+        $s = date("d-m-Y H:i:s") . " - $msg в  $file:$line";
+        error_log("$s\n", 3, "error.log");
+    }
+}
+
 function drawMenu($menu, $vertical = true)
 {
     if (!is_array($menu))

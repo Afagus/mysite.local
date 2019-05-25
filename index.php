@@ -1,6 +1,7 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 require "inc/lib.inc.php";
+set_error_handler("myError");
 require "inc/data.inc.php";
 ?>
 

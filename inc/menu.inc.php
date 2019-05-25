@@ -2,7 +2,7 @@
 <!-- Меню -->
 <?php
 if (!drawMenu($leftMenu)) {
-    echo "Sorry...";
+    trigger_error("Проблема с отрисовкой меню", E_USER_ERROR);
 }
 
 ?>
